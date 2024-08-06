@@ -44,7 +44,7 @@ export default function LoginScreen() {
             <Feather name="square" size={24} color={COLORS.GRAY3} />
             <Text style={styles.rememberMeText}>Remember me</Text>
           </View>
-          <Pressable>
+          <Pressable onPress={()=>navigation.navigate("ForgetPasswordScreen")}>
             <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
           </Pressable>
         </View>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Pressable } from "react-native";
+import { View, StyleSheet, Text, Pressable, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../../constants/themes";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
@@ -18,60 +18,65 @@ export default function LoginScreen() {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <View style={styles.container}>
-        <FontAwesome5
-          name="arrow-left"
-          size={20}
-          color={COLORS.PRIMARY}
-          style={styles.backIcon}
-          onPress={() => navigation.goBack()}
-        />
-        <Text style={styles.title}>Sign up</Text>
-        <Text style={styles.label}>Name</Text>
-        <CustomTextInput
-          placeholder="Enter Your Name"
-          value={name}
-          onChangeText={setName}
-        />
-        <Text style={styles.label}>Email</Text>
-        <CustomTextInput
-          placeholder="Enter Your Email"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <Text style={styles.label}>Password</Text>
-        <CustomTextInput
-          placeholder="Enter Your Password"
-          secureTextEntry={true}
-          iconName="eyeo"
-          value={password}
-          onChangeText={setPassword}
-        />
-        <Text style={styles.label}>Confirm Password</Text>
-        <CustomTextInput
-          placeholder="Enter Your Password"
-          secureTextEntry={true}
-          iconName="eyeo"
-          value={confirmPassword}
-          onChangeText={setConfirmPassword}
-        />
+        <KeyboardAvoidingView style={styles.container}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}>
+          <ScrollView contentContainerStyle={{flexGrow:1}}showsVerticalScrollIndicator={false}>
+            <FontAwesome5
+              name="arrow-left"
+              size={20}
+              color={COLORS.PRIMARY}
+              style={styles.backIcon}
+              onPress={() => navigation.goBack()}
+            />
+            <Text style={styles.title}>Sign up</Text>
+            <Text style={styles.label}>Name</Text>
+            <CustomTextInput
+              placeholder="Enter Your Name"
+              value={name}
+              onChangeText={setName}
+            />
+            <Text style={styles.label}>Email</Text>
+            <CustomTextInput
+              placeholder="Enter Your Email"
+              value={email}
+              onChangeText={setEmail}
+            />
+            <Text style={styles.label}>Password</Text>
+            <CustomTextInput
+              placeholder="Enter Your Password"
+              secureTextEntry={true}
+              iconName="eyeo"
+              value={password}
+              onChangeText={setPassword}
+            />
+            <Text style={styles.label}>Confirm Password</Text>
+            <CustomTextInput
+              placeholder="Enter Your Password"
+              secureTextEntry={true}
+              iconName="eyeo"
+              value={confirmPassword}
+              onChangeText={setConfirmPassword}
+            />
 
-        <View style={styles.agreementContainer}>
-          <Feather name="square" size={24} color={COLORS.GRAY3} />
-          <Text style={styles.agreementText}>
-            Agree{" "}
-            <Text style={styles.agreementLink}>Privacy Policy</Text>
-            {" "} &{" "}
-            <Text style={styles.agreementLink}>User Agreement</Text>
-          </Text>
-        </View>
+            <View style={styles.agreementContainer}>
+              <Feather name="square" size={24} color={COLORS.GRAY3} />
+              <Text style={styles.agreementText}>
+                Agree{" "}
+                <Text style={styles.agreementLink}>Privacy Policy</Text>
+                {" "} &{" "}
+                <Text style={styles.agreementLink}>User Agreement</Text>
+              </Text>
+            </View>
 
-        <View style={styles.registerButtonContainer}>
-          <CustomButton
-            title="Register"
-            onPress={() => navigation.replace("HomeScreen")}
-          />
-        </View>
+            <View style={styles.registerButtonContainer}>
+              <CustomButton
+                title="Register"
+                onPress={() => navigation.replace("HomeScreen")}
+              />
+            </View>
+          </ScrollView>
+
+          </KeyboardAvoidingView>
         <View style={styles.dividerContainer}>
           <Text style={styles.dividerLine} />
           <Text style={styles.orSignUpText}>or sign up with</Text>
@@ -86,7 +91,7 @@ export default function LoginScreen() {
             </Text>
           </Pressable>
         </View>
-      </View>
+ 
     </SafeAreaView>
   );
 }
@@ -157,7 +162,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignSelf: "center",
-    paddingVertical: 10,
     width: "80%",
   },
   alreadyHaveAccountText: {

@@ -7,6 +7,9 @@ import LoginScreens from "../screens/AuthScreens/LoginScreens";
 import RegisterScreen from "../screens/AuthScreens/RegisterScreen";
 import ForgetPasswordScreen from "../screens/AuthScreens/ForgetPasswordScreen";
 import HomeScreen from "../screens/HomeScreen";
+import ResetPasswordScreen from "../screens/AuthScreens/ResetPasswordScreen";
+import ResetPasswordScreen2 from "../screens/AuthScreens/ResetPasswordScreen2";
+
 export default function StackNavigator() {
   const Stack = createNativeStackNavigator();
   return (
@@ -46,6 +49,20 @@ export default function StackNavigator() {
         <Stack.Screen
           name="ForgetPasswordScreen"
           component={ForgetPasswordScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ResetPasswordScreen"
+          component={ResetPasswordScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="ResetPasswordScreen2"
+          component={ResetPasswordScreen2}
           options={{
             headerShown: false,
           }}

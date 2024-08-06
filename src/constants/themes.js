@@ -9,7 +9,8 @@ export const COLORS = {
   GRAY2: "#DDE2E5",
   GRAY3: "#ACB5BD",
   GRAY4: "#495057",
-  RED:"#F03D3E"
+  RED:"#F03D3E",
+  ERROR:"#D80000"
 };
 export const SIZES = {
   h1: 14,
