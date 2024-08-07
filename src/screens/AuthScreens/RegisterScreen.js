@@ -71,7 +71,7 @@ export default function LoginScreen() {
             <View style={styles.registerButtonContainer}>
               <CustomButton
                 title="Register"
-                onPress={() => navigation.replace("HomeScreen")}
+                onPress={() => navigation.replace("LoginScreen")}
               />
             </View>
           </ScrollView>
